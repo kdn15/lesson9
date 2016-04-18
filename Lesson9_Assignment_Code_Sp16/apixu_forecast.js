@@ -32,7 +32,7 @@
                  (https://www.apixu.com)
                  Use the following code as an example:
                    
-                     url: 'https://api.apixu.com/v1/forecast.json?key=ADD_YOUR_API_KEY_HERE',
+                     url: 'https://api.apixu.com/v1/forecast.json?key=7945a64df4124574988214953161704',
                      
                      
                 IMPORTANT:  Before proceeding to Activity 2, save your Cloud9 workspace and preview this application 
@@ -54,7 +54,19 @@
                  Use the following code as an example to add Day 4 data to the HTML page for min and max temperature:  
                    
                      $('#Day4Low').html();
-                     $('#Day4High').html();   
+                     $('#Day4High').html();  
+                      $('#Day5Low').html();
+                     $('#Day5High').html();
+                      $('#Day6Low').html();
+                     $('#Day6High').html();
+                      $('#Day7Low').html();
+                     $('#Day7High').html();
+                      $('#Day8Low').html();
+                     $('#Day8High').html();
+                      $('#Day9Low').html();
+                     $('#Day9High').html();
+                      $('#Day10Low').html();
+                     $('#Day10High').html();
                                 
     Activity 4:  Inside the html() parenthesis of the code from Step 1, add the following code to pull out of the HTTP Request
                  the forecast weather data for days 4-10.  
@@ -63,6 +75,20 @@
                    
                      forecast.forecastday[3].day.mintemp_f  
                      forecast.forecastday[3].day.maxtemp_f     
+                     forecast.forecastday[4].day.mintemp_f  
+                     forecast.forecastday[4].day.maxtemp_f 
+                     forecast.forecastday[5].day.mintemp_f  
+                     forecast.forecastday[5].day.maxtemp_f 
+                     forecast.forecastday[6].day.mintemp_f  
+                     forecast.forecastday[6].day.maxtemp_f 
+                     forecast.forecastday[7].day.mintemp_f  
+                     forecast.forecastday[7].day.maxtemp_f 
+                     forecast.forecastday[8].day.mintemp_f  
+                     forecast.forecastday[8].day.maxtemp_f 
+                     forecast.forecastday[9].day.mintemp_f  
+                     forecast.forecastday[9].day.maxtemp_f 
+                     forecast.forecastday[10].day.mintemp_f  
+                     forecast.forecastday[10].day.maxtemp_f 
                      
                  HINT:  The following is an example of the final code to add Day 4 min and max temperature to the application:
         
@@ -72,10 +98,10 @@
 
         $(document).ready(function(){
            $(':button').click(function(){
-                var message = 'q=' + $('#searchValue').val()+'&days=3';   
+                var message = 'q=' + $('#searchValue').val()+'&days=10';   
                 $.ajax({
                       type: 'GET',
-                      url: 'https://api.apixu.com/v1/forecast.json?key=ADD_YOUR_API_KEY_HERE',
+                      url: 'https://api.apixu.com/v1/forecast.json?key=7945a64df4124574988214953161704',
                       data: message             
                 })
                 .done(function(json){
@@ -87,7 +113,22 @@
                      $('#Day1High').html("<center>" + json.forecast.forecastday[0].day.maxtemp_f + "</center>");
                      $('#Day2Low').html("<center>" + json.forecast.forecastday[1].day.mintemp_f + "</center>");
                      $('#Day2High').html("<center>" + json.forecast.forecastday[1].day.maxtemp_f + "</center>");        
-
+                     $('#Day3Low').html("<center>" + json.forecast.forecastday[2].day.mintemp_f + "</center>");
+                     $('#Day3High').html("<center>" + json.forecast.forecastday[2].day.maxtemp_f + "</center>");
+                     $('#Day4Low').html("<center>" + json.forecast.forecastday[3].day.mintemp_f + "</center>");
+                     $('#Day4High').html("<center>" + json.forecast.forecastday[3].day.maxtemp_f + "</center>");  
+                     $('#Day5Low').html("<center>" + json.forecast.forecastday[4].day.mintemp_f + "</center>");
+                     $('#Day5High').html("<center>" + json.forecast.forecastday[4].day.maxtemp_f + "</center>");
+                     $('#Day6Low').html("<center>" + json.forecast.forecastday[5].day.mintemp_f + "</center>");
+                     $('#Day6High').html("<center>" + json.forecast.forecastday[5].day.maxtemp_f + "</center>");
+                     $('#Day7Low').html("<center>" + json.forecast.forecastday[6].day.mintemp_f + "</center>");
+                     $('#Day7High').html("<center>" + json.forecast.forecastday[6].day.maxtemp_f + "</center>");
+                     $('#Day8Low').html("<center>" + json.forecast.forecastday[7].day.mintemp_f + "</center>");
+                     $('#Day8High').html("<center>" + json.forecast.forecastday[7].day.maxtemp_f + "</center>");
+                     $('#Day9Low').html("<center>" + json.forecast.forecastday[8].day.mintemp_f + "</center>");
+                     $('#Day9High').html("<center>" + json.forecast.forecastday[8].day.maxtemp_f + "</center>");
+                     $('#Day10Low').html("<center>" + json.forecast.forecastday[9].day.mintemp_f + "</center>");
+                     $('#Day10High').html("<center>" + json.forecast.forecastday[9].day.maxtemp_f + "</center>");
                      
                 })
                 .fail(function() {
